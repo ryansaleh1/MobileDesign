@@ -1,117 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Professional portfolio website">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ryan Saleh portfolio" />
   <title>Ryan Saleh | Portfolio</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, sans-serif;
-      line-height: 1.6;
-    }
-
-    header, section, footer {
-      padding: 1rem;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    nav a {
-      margin-left: 1rem;
-      text-decoration: none;
-    }
-
-    .projects {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    .project-card {
-      border: 1px solid #ccc;
-      padding: 1rem;
-    }
-
-    @media (min-width: 768px) {
-      .projects {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 1200px) {
-      .projects {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Go to top">
+        <span class="brand-name">Ryan Saleh</span>
+      </a>
 
-  <header>
-    <nav aria-label="Primary navigation">
-      <h1>Ryan Saleh</h1>
-      <div>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navMenu">
+        <span class="sr-only">Open menu</span>
+        ☰
+      </button>
+
+      <div class="nav-links" id="navMenu">
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
   </header>
 
-  <main>
+  <main id="top">
+    <section class="hero">
+      <h1 class="hero-title">Web Developer</h1>
+      <p class="hero-subtitle">
+        I build responsive, mobile-first websites using modern web technologies.
+      </p>
 
-    <section>
-      <h2>Web Developer</h2>
-      <p>I build responsive, mobile-first websites using modern web technologies.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#projects">View Projects</a>
+        <a class="btn" href="#contact">Contact</a>
+      </div>
     </section>
 
-    <section id="projects">
-      <h2>Projects</h2>
+    <section id="projects" class="section">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <p class="muted">Art reflections on <em>The Second Body</em> (PDFs).</p>
+      </div>
 
-      <div class="projects">
+      <div class="projects-grid">
+        <!-- Project 1 -->
         <article class="project-card">
-          <h3>Project One</h3>
-          <p>This is Project 1</p>
+          <a class="project-link" href="thing5.pdf" target="_blank" rel="noopener">
+            <div class="thumb" role="img" aria-label="Project One thumbnail">
+              <!-- If you have images, replace the div.thumb with an <img> -->
+              <!-- <img src="thing5.jpg" alt="Project One thumbnail"> -->
+              <span class="thumb-label">PDF</span>
+            </div>
+
+            <div class="project-body">
+              <h3>Reflection Study 1</h3>
+              <p>
+                A visual response exploring identity and perception through motifs inspired by
+                <em>The Second Body</em>. Focuses on contrast, layering, and mood.
+              </p>
+              <span class="pill">Open PDF</span>
+            </div>
+          </a>
         </article>
 
+        <!-- Project 2 -->
         <article class="project-card">
-          <h3>Project Two</h3>
-          <p>Short description of the project.</p>
+          <a class="project-link" href="thing4.pdf" target="_blank" rel="noopener">
+            <div class="thumb" role="img" aria-label="Project Two thumbnail">
+              <span class="thumb-label">PDF</span>
+            </div>
+
+            <div class="project-body">
+              <h3>Reflection Study 2</h3>
+              <p>
+                An interpretive piece centered on transformation and embodiment. Uses shape repetition
+                and spacing to reflect tone and pacing from the text.
+              </p>
+              <span class="pill">Open PDF</span>
+            </div>
+          </a>
         </article>
 
+        <!-- Project 3 -->
         <article class="project-card">
-          <h3>Project Three</h3>
-          <p>Short description of the project.</p>
+          <a class="project-link" href="thing6.pdf" target="_blank" rel="noopener">
+            <div class="thumb" role="img" aria-label="Project Three thumbnail">
+              <span class="thumb-label">PDF</span>
+            </div>
+
+            <div class="project-body">
+              <h3>Reflection Study 3</h3>
+              <p>
+                A reflective composition focusing on memory and the “second self.” Emphasizes texture,
+                negative space, and a minimal palette for clarity.
+              </p>
+              <span class="pill">Open PDF</span>
+            </div>
+          </a>
         </article>
       </div>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
+    <section id="contact" class="section">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p class="muted">Send a message and I’ll get back to you.</p>
+      </div>
 
-      <form>
-        <label for="email">Email</label><br>
-        <input id="email" type="email" required><br><br>
+      <form class="contact-form" id="contactForm" novalidate>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com" />
 
-        <label for="message">Message</label><br>
-        <textarea id="message" required></textarea><br><br>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Write your message..."></textarea>
 
-        <button type="submit">Send</button>
+        <p class="form-feedback" id="formFeedback" aria-live="polite"></p>
+
+        <button class="btn primary" type="submit">Send</button>
       </form>
     </section>
-
   </main>
 
-  <footer>
-    <p>Ryan Saleh</p>
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Ryan Saleh</p>
   </footer>
 
+  <script src="script.js" defer></script>
 </body>
 </html>
